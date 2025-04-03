@@ -1,0 +1,14 @@
+FROM node:20.9.0-bookworm
+
+RUN mkdir -p /usr/src/app
+
+WORKDIR /usr/src/app
+
+ENV DATA_BASE="Products"
+COPY package.json ./ 
+
+RUN npm install
+
+COPY . . 
+
+ENTRYPOINT npm run start.dev
